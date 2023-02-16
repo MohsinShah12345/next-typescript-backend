@@ -34,10 +34,10 @@ const router_1 = require("../src/router");
 const bodyParser = require("body-parser");
 dotenv.config();
 const app = (0, express_1.default)();
-// onstance of express app/application
+// Instance of express app/application
 app.use(bodyParser.json());
-// use to ready body from request e.g post/patch/delete
-app.use((0, cors_1.default)({ origin: ["http:localhost:3000/", "localhost:3001/"] }));
+// use to read body from request e.g post/patch/delete
+app.use((0, cors_1.default)({ origin: ["http://localhost:3000/", "http://localhost:3001/"] }));
 // origins allowed to server
 app.get("/", (req, res) => {
     res.send("Express + TypeScript Server Connected");

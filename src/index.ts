@@ -1,4 +1,4 @@
-import express, { Express, Request, Response, Application } from "express";
+import express, { Request, Response, Application } from "express";
 import * as dotenv from "dotenv";
 import cors from "cors";
 import { serviceRouter } from "../src/router";
@@ -7,10 +7,10 @@ import { serviceRouter } from "../src/router";
 const bodyParser = require("body-parser");
 dotenv.config();
 const app: Application = express();
-// onstance of express app/application
+// Instance of express app/application
 app.use(bodyParser.json());
-// use to ready body from request e.g post/patch/delete
-app.use(cors({ origin: ["http:localhost:3000/", "localhost:3001/"] }));
+// use to read body from request e.g post/patch/delete
+app.use(cors({ origin: ["http://localhost:3000/", "http://localhost:3001/"] }));
 // origins allowed to server
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server Connected");
