@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 // use to read body from request e.g post/patch/delete
 app.use(cors({ origin: ["http://localhost:3000/", "http://localhost:3001/"] }));
 // origins allowed to server
-app.get("/", (req: Request, res: Response) => {
+app.get("/api/v1", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server Connected");
 });
 // default response of server

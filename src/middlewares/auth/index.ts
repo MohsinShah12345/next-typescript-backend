@@ -21,6 +21,7 @@ const verifyToken = (
   } catch (err) {
     return res.status(401).send("Invalid Token");
   }
+  console.log("Verified");
   return next();
 };
 

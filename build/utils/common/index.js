@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.verifyPassword = exports.encryptPassword = exports.createToken = void 0;
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 const createToken = (user_id, email) => __awaiter(void 0, void 0, void 0, function* () {
     const token = jwt.sign({ user_id: user_id, email: email }, process.env.PUBLIC_KEY, {
         expiresIn: "24h",
@@ -20,13 +21,13 @@ const createToken = (user_id, email) => __awaiter(void 0, void 0, void 0, functi
 exports.createToken = createToken;
 const encryptPassword = (password) => __awaiter(void 0, void 0, void 0, function* () {
     const encryptedPassword = "";
-    // await bcrypt.hash(password, 10);
+    yield bcrypt.hash(password, 10);
     return encryptedPassword;
 });
 exports.encryptPassword = encryptPassword;
 const verifyPassword = (bodyPassword, savedPassword) => __awaiter(void 0, void 0, void 0, function* () {
     const verify = true;
-    //  await bcrypt.compare(bodyPassword, savedPassword);
+    yield bcrypt.compare(bodyPassword, savedPassword);
     return verify;
 });
 exports.verifyPassword = verifyPassword;

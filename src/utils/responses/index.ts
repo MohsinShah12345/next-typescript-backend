@@ -8,6 +8,13 @@ export const successResponse = (
 ): any => {
   return res.status(status).json({ data, message });
 };
+export const failureResponse = (
+  res: Response,
+  status: number = 400,
+  message: string = "Request Failed For Some Resoons"
+): any => {
+  return res.status(status).json({ message: message });
+};
 export const throwError = (
   res: Response,
   err: any = "Internal Server Error"
