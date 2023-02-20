@@ -120,10 +120,10 @@ export const deleteUser = async (
   res: Response
 ): Promise<returnAny> => {
   try {
-    const { id = "" } = req.body;
+    const { id } = req.params;
     const user = await userService.singleUser(id);
     if (user) {
-      const deleteUser = await userService.deleteUser(user);
+      const deleteUser = await userService.deleteUser(id);
       return successResponse(res, {}, 200, "User Account hass been Deleted");
     } else {
       return failureResponse(res, 400, "User Does Not Exist");

@@ -14,9 +14,9 @@ export const updateUser = async (
     throw error;
   }
 };
-export const deleteUser = async (email: any): Promise<any | void> => {
+export const deleteUser = async (id: any): Promise<any | void> => {
   try {
-    const deleteUser = await userModel.findOneAndDelete({ email });
+    const deleteUser = await userModel.findByIdAndDelete(id);
     return deleteUser;
   } catch (error) {
     throw error;

@@ -7,7 +7,6 @@ const verifyToken = (
   res: Response,
   next: NextFunction | voidFunction
 ) => {
-  console.log("Verifying token");
   const token =
     req.body.token || req.query.token || req.headers["authorization"];
   const myArray = req.headers["authorization"]?.split(" ") ?? [];
@@ -21,7 +20,6 @@ const verifyToken = (
   } catch (err) {
     return res.status(401).send("Invalid Token");
   }
-  console.log("Verified");
   return next();
 };
 
