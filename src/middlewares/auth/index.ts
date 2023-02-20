@@ -7,7 +7,6 @@ const verifyToken = (
   res: Response,
   next: NextFunction | voidFunction
 ) => {
-  console.log("Verifying token");
   const token =
     req.body.token || req.query.token || req.headers["authorization"];
   const myArray = req.headers["authorization"]?.split(" ") ?? [];

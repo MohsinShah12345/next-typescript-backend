@@ -3,3 +3,4 @@ export * as bookingService from "./booking";
 export * as eventService from "./event";
 export * as requestService from "./request";
 export * as transactionService from "./transaction";
+export * as userService from "./user";

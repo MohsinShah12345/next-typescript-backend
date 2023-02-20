@@ -1,6 +1,8 @@
 import { z, AnyZodObject } from "zod";
 import { Request, Response, NextFunction } from "express";
-import { takeCoverage } from "v8";
+/*******************Auth******************** */
+/*******************User******************** */
+
 export const userSchema = z.object({
   // given below fields are for body / req.body(express)
   body: z.object({
@@ -11,6 +13,26 @@ export const userSchema = z.object({
     contactNo: z.string(),
   }),
 });
+export const singleUser = z.object({
+  params: z.object({
+    id: z.string(),
+  }),
+});
+export const updateUser = z.object({
+  body: z.object({
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.string().email(),
+  }),
+});
+export const updatePassword = z.object({
+  body: z.object({
+    oldPassword: z.string(),
+    newPassword: z.string(),
+    email: z.string(),
+  }),
+});
+/********************Event***********************/
 export const eventSchema = z.object({
   // given below fields are for body / req.body(express)
   body: z.object({
@@ -21,6 +43,7 @@ export const eventSchema = z.object({
     ticketsAvailable: z.number(),
   }),
 });
+/******************** Request**********************/
 export const requestSchema = z.object({
   // given below fields are for body / req.body(express)
   body: z.object({
@@ -32,6 +55,7 @@ export const requestSchema = z.object({
     }),
   }),
 });
+/********************* Transaction*************************/
 export const transactionSchema = z.object({
   // given below fields are for body / req.body(express)
   body: z.object({
@@ -41,6 +65,7 @@ export const transactionSchema = z.object({
     paidBy: z.string(),
   }),
 });
+/************************Booking*************************/
 export const bookingSchema = z.object({
   // given below fields are for body / req.body(express)
   body: z.object({
@@ -52,7 +77,7 @@ export const bookingSchema = z.object({
     }),
   }),
 });
-
+/*************************Validator***********************/
 export const validate =
   (Schema: AnyZodObject) =>
   async (req: Request, res: Response, next: NextFunction): Promise<any> => {
